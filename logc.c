@@ -46,9 +46,9 @@ static size_t logc_format_time(char *buf, size_t len)
 
     gettimeofday(&tv, NULL);
     gmtime_r(&tv.tv_sec, &tm);
-    rs = snprintf(buf, len, "%04d/%02d/%02d %02d:%02d:%02d",
+    rs = snprintf(buf, len, "%04d/%02d/%02d %02d:%02d:%02d.%ldZ",
                   tm.tm_year + 1990, tm.tm_mon + 1, tm.tm_mday,
-                  tm.tm_hour, tm.tm_min, tm.tm_sec);
+                  tm.tm_hour, tm.tm_min, tm.tm_sec,tv.tv_usec);
     return rs;
 }
 

@@ -1,6 +1,7 @@
 CC = gcc
 LINK = ${CC}
 CFLAGS = -g
+VERSION = 0.1.0
 
 .PHONY: all
 
@@ -19,10 +20,10 @@ test-logc.o: test-logc.c
 	$(CC) -c $<
 
 tar:
-	tar -czf logc.tar.gz logc.h logc.c test-logc.c Makefile
+	tar -czf logc-$(VERSION).tar.gz logc.h logc.c test-logc.c Makefile
 
 .PHONY: clean
 
 clean:
-	rm *.o testlogc liblogc.so
+	rm *.o testlogc liblogc.so logc*.tar.*
 
